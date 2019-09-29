@@ -48,4 +48,6 @@ export default (gameRule, generateQuiz) => {
       console.log(`Congratulations, ${user}!`);
     }
   }
+
+  return null;
 };
