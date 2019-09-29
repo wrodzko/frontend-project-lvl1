@@ -1,22 +1,22 @@
 import launchGameEngine from '..';
 import { generateRandomInt, generateMathSign, mathItUp } from '../lib';
 
-const GAME_RULE = 'What number is missing in the progression?';
-const PROGRESSION_NUMBERS_COUNT = 10;
-const MAX_DELTA = 10;
-const MAX_RANDOM_NUMBER = 100;
+const gameRule = 'What number is missing in the progression?';
+const progressionNumberCount = 10;
+const maxDelta = 10;
+const maxRandomNumber = 100;
 
 function generateProgression() {
-  const firstNumber = generateRandomInt(MAX_RANDOM_NUMBER);
-  const unknownNumberPosition = generateRandomInt(PROGRESSION_NUMBERS_COUNT);
+  const firstNumber = generateRandomInt(maxRandomNumber);
+  const unknownNumberPosition = generateRandomInt(progressionNumberCount);
   const progressionSign = generateMathSign();
-  const delta = generateRandomInt(MAX_DELTA);
+  const delta = generateRandomInt(maxDelta);
 
   let progression = '';
   let accum = firstNumber;
   let unknownNumber;
 
-  for (let i = 0; i < PROGRESSION_NUMBERS_COUNT; i += 1) {
+  for (let i = 0; i < progressionNumberCount; i += 1) {
     accum = mathItUp(progressionSign)(accum, delta);
 
     if (i === unknownNumberPosition) {
@@ -45,4 +45,4 @@ const generateQuiz = () => {
   return quiz;
 };
 
-export default () => launchGameEngine(GAME_RULE, generateQuiz);
+export default () => launchGameEngine(gameRule, generateQuiz);

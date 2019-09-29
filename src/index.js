@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const ATTEMTS_COUNT = 3;
+const attemtsCount = 3;
 
 const putMsgSeparator = () => console.log('\n');
 
@@ -27,7 +27,7 @@ export default (gameRule, generateQuiz) => {
 
   putMsgSeparator();
 
-  for (let i = 0; i < ATTEMTS_COUNT; i += 1) {
+  for (let i = 0; i < attemtsCount; i += 1) {
     const quiz = generateQuiz();
 
     console.log(`Question: ${quiz.question}`);

@@ -1,7 +1,7 @@
 {
   "name": "radzko-brain-games",
   "version": "1.4.0",
-  "description": "",
+  "description": "Simple games for math practice.",
   "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
@@ -23,6 +23,13 @@
     "type": "git",
     "url": "git+https://github.com/wrodzko/frontend-project-lvl1.git"
   },
+  "keywords": [
+    "games",
+    "prime",
+    "even",
+    "progression",
+    "calculator"
+  ],
   "author": "Uladzislau Radzko",
   "license": "ISC",
   "bugs": {
