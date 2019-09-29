@@ -6,6 +6,10 @@
 
 [![Build Status](https://travis-ci.org/wrodzko/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/wrodzko/frontend-project-lvl1)
 
-## asciinema for Brain-Even Game
+## Brain-Even Game
 
 [![asciicast](https://asciinema.org/a/neNCUoNlgS7oo4LS3SPXLb68M.svg)](https://asciinema.org/a/neNCUoNlgS7oo4LS3SPXLb68M)
+
+## Brain-Calc Game
+
+[![asciicast](https://asciinema.org/a/XoTGkejhSAPpxKw9y3vo0Rqql.svg)](https://asciinema.org/a/XoTGkejhSAPpxKw9y3vo0Rqql)
