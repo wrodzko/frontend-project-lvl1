@@ -1,58 +1,51 @@
 import readlineSync from 'readline-sync';
-import generateRandomInt from './lib';
 
-// First Game
-const meetUser = () => {
+const ATTEMTS_COUNT = 3;
+
+const putMsgSeparator = () => console.log('\n');
+
+/**
+ * Generate main flow for each game.
+ * @param {string} gameRule         – The rule of the game.
+ * @param {function} generateQuiz   – Return object with question and answer.
+ */
+export default (gameRule, generateQuiz) => {
   console.log('Welcome to the Brain Games!');
-  console.log('May I have your name?');
 
-  const user = readlineSync.question('Type your name... ');
+  if (gameRule) {
+    console.log(gameRule);
+  }
 
-  console.log(`Hello, ${user}!`);
-};
-
-// Second Game
-const startBrainEvenGame = () => {
-  const ATTEMTS_COUNT = 3;
-
-  console.log('---------------------------');
-  console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  console.log('---------------------------');
+  putMsgSeparator();
 
   console.log('May I have your name?');
-
   const user = readlineSync.question('Type your name... ');
-
   console.log(`Hello, ${user}!`);
-  console.log('---------------------------');
+
+  // end First Game without rule
+  if (!gameRule) return null;
+
+  putMsgSeparator();
 
   for (let i = 0; i < ATTEMTS_COUNT; i += 1) {
-    const randomInt = generateRandomInt(100);
-    const correctAnswer = randomInt % 2 === 0 ? 'yes' : 'no';
+    const quiz = generateQuiz();
 
-    console.log(`Question: ${randomInt}`);
+    console.log(`Question: ${quiz.question}`);
 
-    const answer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    if (correctAnswer === answer) {
+    if (quiz.answer === userAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${quiz.answer}'`);
       console.log(`Let's try again, ${user}!`);
       break;
     }
 
-    console.log('---------------------------');
+    putMsgSeparator();
 
     if (i === 2) {
       console.log(`Congratulations, ${user}!`);
-      console.log('---------------------------');
     }
   }
-};
-
-export {
-  meetUser,
-  startBrainEvenGame,
 };
