@@ -1,0 +1,19 @@
+{
+  "name": "radzko-brain-games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrodzko/frontend-project-lvl1.git"
+  },
+  "author": "Uladzislau Radzko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wrodzko/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/wrodzko/frontend-project-lvl1#readme"
+}
