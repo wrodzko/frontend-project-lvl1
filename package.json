@@ -2,7 +2,6 @@
   "name": "radzko-brain-games",
   "version": "1.4.0",
   "description": "Simple games for math practice.",
-  "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
