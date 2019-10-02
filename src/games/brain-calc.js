@@ -1,7 +1,7 @@
 import launchGameEngine from '..';
 import { generateRandomInt, generateMathSign, mathItUp } from '../lib';
 
-const gameRule = 'What is the result of the expression?';
+const gameTask = 'What is the result of the expression?';
 
 const generateQuiz = () => {
   const quiz = {};
@@ -15,4 +15,4 @@ const generateQuiz = () => {
   return quiz;
 };
 
-export default () => launchGameEngine(gameRule, generateQuiz);
+export default () => launchGameEngine(gameTask, generateQuiz);

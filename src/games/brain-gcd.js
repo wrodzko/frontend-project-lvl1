@@ -1,7 +1,7 @@
 import launchGameEngine from '..';
 import { generateRandomInt } from '../lib';
 
-const gameRule = 'Find the greatest common divisor of given numbers.';
+const gameTask = 'Find the greatest common divisor of given numbers.';
 const maxRandomNumber = 100;
 
 function gcd(x, y) {
@@ -19,4 +19,4 @@ const generateQuiz = () => {
   return quiz;
 };
 
-export default () => launchGameEngine(gameRule, generateQuiz);
+export default () => launchGameEngine(gameTask, generateQuiz);

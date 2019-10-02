@@ -1,7 +1,7 @@
 import launchGameEngine from '..';
 import { generateRandomInt, generateMathSign, mathItUp } from '../lib';
 
-const gameRule = 'What number is missing in the progression?';
+const gameTask = 'What number is missing in the progression?';
 const progressionNumberCount = 10;
 const maxDelta = 10;
 const maxRandomNumber = 100;
@@ -45,4 +45,4 @@ const generateQuiz = () => {
   return quiz;
 };
 
-export default () => launchGameEngine(gameRule, generateQuiz);
+export default () => launchGameEngine(gameTask, generateQuiz);
