@@ -5,7 +5,7 @@ export const generateRandomInt = (min = -100, max = 100) => Math.floor(
 );
 
 export const generateMathSign = () => {
-  const operationIndex = generateRandomInt(availableMathOperations.length);
+  const operationIndex = generateRandomInt(0, availableMathOperations.length - 1);
 
   return availableMathOperations[operationIndex];
 };
