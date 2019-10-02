@@ -1,11 +1,13 @@
-export const generateRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+const availableMathOperations = ['+', '-', '*'];
+
+export const generateRandomInt = (min = -100, max = 100) => Math.floor(
+  Math.random() * min + Math.random() * max,
+);
 
 export const generateMathSign = () => {
-  switch (generateRandomInt(3)) {
-    case 0: return '+';
-    case 1: return '-';
-    default: return '*';
-  }
+  const operationIndex = generateRandomInt(availableMathOperations.length);
+
+  return availableMathOperations[operationIndex];
 };
 
 export const mathItUp = (operator) => {

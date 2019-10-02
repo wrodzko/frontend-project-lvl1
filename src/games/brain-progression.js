@@ -6,12 +6,7 @@ const progressionNumberCount = 10;
 const maxDelta = 10;
 const maxRandomNumber = 100;
 
-function generateProgression() {
-  const firstNumber = generateRandomInt(maxRandomNumber);
-  const unknownNumberPosition = generateRandomInt(progressionNumberCount);
-  const progressionSign = generateMathSign();
-  const delta = generateRandomInt(maxDelta);
-
+function generateProgression(firstNumber, unknownNumberPosition, progressionSign, delta) {
   let progression = '';
   let accum = firstNumber;
   let unknownNumber;
@@ -20,13 +15,11 @@ function generateProgression() {
     accum = mathItUp(progressionSign)(accum, delta);
 
     if (i === unknownNumberPosition) {
-      progression += '..';
+      progression = `${progression} .. `;
       unknownNumber = accum;
     } else {
-      progression += accum;
+      progression = `${progression} ${accum} `;
     }
-
-    progression += ' ';
   }
 
   return {
@@ -37,7 +30,13 @@ function generateProgression() {
 
 const generateQuiz = () => {
   const quiz = {};
-  const progression = generateProgression();
+  const firstNumber = generateRandomInt(maxRandomNumber);
+  const unknownNumberPosition = generateRandomInt(progressionNumberCount);
+  const progressionSign = generateMathSign();
+  const delta = generateRandomInt(maxDelta);
+
+  const progression = generateProgression(firstNumber, unknownNumberPosition,
+    progressionSign, delta);
 
   quiz.question = progression.progression;
   quiz.answer = progression.unknownNumber.toString();

@@ -22,22 +22,19 @@ export default (gameRule, generateQuiz) => {
   const user = readlineSync.question('Type your name... ');
   console.log(`Hello, ${user}!`);
 
-  // end First Game without rule
-  if (!gameRule) return null;
-
   putMsgSeparator();
 
   for (let i = 0; i < attemtsCount; i += 1) {
-    const quiz = generateQuiz();
+    const { question, answer } = generateQuiz();
 
-    console.log(`Question: ${quiz.question}`);
+    console.log(`Question: ${question}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (quiz.answer === userAnswer) {
+    if (answer === userAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${quiz.answer}'`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'`);
       console.log(`Let's try again, ${user}!`);
       break;
     }
@@ -48,6 +45,4 @@ export default (gameRule, generateQuiz) => {
       console.log(`Congratulations, ${user}!`);
     }
   }
-
-  return null;
 };

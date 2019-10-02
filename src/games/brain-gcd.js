@@ -3,18 +3,19 @@ import { generateRandomInt } from '../lib';
 
 const gameTask = 'Find the greatest common divisor of given numbers.';
 const maxRandomNumber = 100;
+const minRandomNumber = 0;
 
-function gcd(x, y) {
-  return y === 0 ? x : gcd(y, x % y);
-}
+const getGCD = (x, y) => (y === 0 ? x : getGCD(y, x % y));
+
+const generateRandomNumber = () => generateRandomInt(minRandomNumber, maxRandomNumber);
 
 const generateQuiz = () => {
   const quiz = {};
-  const firstNumber = generateRandomInt(maxRandomNumber);
-  const secondNumber = generateRandomInt(maxRandomNumber);
+  const firstNumber = generateRandomNumber();
+  const secondNumber = generateRandomNumber();
 
   quiz.question = `${firstNumber} ${secondNumber}`;
-  quiz.answer = gcd(firstNumber, secondNumber).toString();
+  quiz.answer = getGCD(firstNumber, secondNumber).toString();
 
   return quiz;
 };
