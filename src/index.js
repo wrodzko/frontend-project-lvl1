@@ -2,8 +2,6 @@ import readlineSync from 'readline-sync';
 
 const attemtsCount = 3;
 
-const putMsgSeparator = () => console.log('\n');
-
 /**
  * Generate main flow for each game.
  * @param {string} gameRule         – The rule of the game.
@@ -16,13 +14,13 @@ export default (gameRule, generateQuiz) => {
     console.log(gameRule);
   }
 
-  putMsgSeparator();
+  console.log();
 
   console.log('May I have your name?');
   const user = readlineSync.question('Type your name... ');
   console.log(`Hello, ${user}!`);
 
-  putMsgSeparator();
+  console.log();
 
   for (let i = 0; i < attemtsCount; i += 1) {
     const { question, answer } = generateQuiz();
@@ -39,7 +37,7 @@ export default (gameRule, generateQuiz) => {
       break;
     }
 
-    putMsgSeparator();
+    console.log();
 
     if (i === 2) {
       console.log(`Congratulations, ${user}!`);
