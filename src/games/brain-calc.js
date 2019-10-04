@@ -1,3 +1,5 @@
+/** @module brain-calc */
+
 import launchGameEngine from '..';
 import generateRandomNumber from '../lib';
 
@@ -7,12 +9,32 @@ const minRandomNumber = 0;
 const maxFirstNumber = 20;
 const maxSecondNumber = 50;
 
-export const generateMathSign = (mathOperators = availableMathOperations) => {
+/**
+ * Generate random math operator from availables.
+ * @param   {array} mathOperators
+ *          Mathematical operations.
+ * @returns {string}
+ *          Random operator from availables.
+ * @example
+ * const generatedOperator = generateMathSign(['*', '+', '-']);
+ * console.log(generatedOperator); // => '+'
+ */
+const generateMathSign = (mathOperators = availableMathOperations) => {
   const operationIndex = generateRandomNumber(0, mathOperators.length - 1);
   return mathOperators[operationIndex];
 };
 
-export const mathItUp = (operator) => {
+/**
+ * Creates an operation based on a mathematical sign.
+ * @param   {string} operator
+ *          Mathematical operator. Supported operators: +, -, *.
+ * @returns {function}
+ *          Math operation with two arguments.
+ * @example
+ * const add = mathItUp('+');
+ * add(5, 3); // => 8
+ */
+const mathItUp = (operator) => {
   switch (operator) {
     case '+': return (x, y) => x + y;
     case '-': return (x, y) => x - y;

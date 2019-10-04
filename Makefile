@@ -9,3 +9,11 @@ publish:
 
 lint:
 	npx eslint .
+
+generate-docs:
+	npx jsdoc -c jsdoc.json
+
+docs:
+	open docs/index.html
+
+.PHONY: docs

@@ -4,6 +4,13 @@
 
 [![Build Status](https://travis-ci.org/wrodzko/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/wrodzko/frontend-project-lvl1)
 
+## Documentation
+You can see the documentation by entering the following command:
+```
+make docs
+```
+---
+
 ## Brain-Even Game
 
 [![asciicast](https://asciinema.org/a/neNCUoNlgS7oo4LS3SPXLb68M.svg)](https://asciinema.org/a/neNCUoNlgS7oo4LS3SPXLb68M)
