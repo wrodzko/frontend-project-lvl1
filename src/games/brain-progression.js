@@ -1,47 +1,35 @@
 import launchGameEngine from '..';
-import { generateRandomInt, generateMathSign, mathItUp } from '../lib';
+import generateRandomNumber from '../lib';
 
 const gameTask = 'What number is missing in the progression?';
 const progressionNumberCount = 10;
 const maxDelta = 10;
 const maxRandomNumber = 100;
+const minRandomNumber = 0;
 
-function generateProgression(firstNumber, unknownNumberPosition, progressionSign, delta) {
-  let progression = '';
-  let accum = firstNumber;
-  let unknownNumber;
+function generateProgression(firstNumber, delta) {
+  const progression = [];
 
   for (let i = 0; i < progressionNumberCount; i += 1) {
-    accum = mathItUp(progressionSign)(accum, delta);
-
-    if (i === unknownNumberPosition) {
-      progression = `${progression} .. `;
-      unknownNumber = accum;
-    } else {
-      progression = `${progression} ${accum} `;
-    }
+    progression.push(firstNumber + i * delta);
   }
 
-  return {
-    progression,
-    unknownNumber,
-  };
+  return progression;
 }
 
 const generateQuiz = () => {
-  const quiz = {};
-  const firstNumber = generateRandomInt(maxRandomNumber);
-  const unknownNumberPosition = generateRandomInt(progressionNumberCount);
-  const progressionSign = generateMathSign();
-  const delta = generateRandomInt(maxDelta);
+  const firstNumber = generateRandomNumber(minRandomNumber, maxRandomNumber);
+  const unknownNumberPosition = generateRandomNumber(minRandomNumber, progressionNumberCount);
+  const delta = generateRandomNumber(minRandomNumber, maxDelta);
 
-  const progression = generateProgression(firstNumber, unknownNumberPosition,
-    progressionSign, delta);
+  const progression = generateProgression(firstNumber, delta);
 
-  quiz.question = progression.progression;
-  quiz.answer = progression.unknownNumber.toString();
+  const answer = progression[unknownNumberPosition];
+  progression[unknownNumberPosition] = '..';
 
-  return quiz;
+  const question = progression.join(' ');
+
+  return { question, answer };
 };
 
 export default () => launchGameEngine(gameTask, generateQuiz);

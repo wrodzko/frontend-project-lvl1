@@ -29,18 +29,16 @@ export default (gameRule, generateQuiz) => {
 
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (answer === userAnswer) {
+    if (String(answer) === userAnswer) {
       console.log('Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'`);
       console.log(`Let's try again, ${user}!`);
-      break;
+      return;
     }
 
     console.log();
-
-    if (i === 2) {
-      console.log(`Congratulations, ${user}!`);
-    }
   }
+
+  console.log(`Congratulations, ${user}!`);
 };

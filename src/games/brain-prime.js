@@ -1,5 +1,5 @@
 import launchGameEngine from '..';
-import { generateRandomInt } from '../lib';
+import generateRandomNumber from '../lib';
 
 const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 const maxRandomNumber = 500;
@@ -16,13 +16,12 @@ const isPrime = (number) => {
 };
 
 const generateQuiz = () => {
-  const quiz = {};
-  const randomNumber = generateRandomInt(minRandomNumber, maxRandomNumber);
+  const randomNumber = generateRandomNumber(minRandomNumber, maxRandomNumber);
 
-  quiz.question = randomNumber;
-  quiz.answer = isPrime(randomNumber) ? 'yes' : 'no';
+  const question = randomNumber;
+  const answer = isPrime(randomNumber) ? 'yes' : 'no';
 
-  return quiz;
+  return { question, answer };
 };
 
 export default () => launchGameEngine(gameTask, generateQuiz);
