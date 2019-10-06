@@ -1,31 +1,31 @@
 import launchGameEngine from '..';
-import generateRandomNumber from '../lib';
+import getRandom from '../lib';
 
 const gameTask = 'What number is missing in the progression?';
-const progressionNumberCount = 10;
+const progressionLength = 10;
 const maxDelta = 10;
-const maxRandomNumber = 100;
-const minRandomNumber = 0;
+const maxRandom = 100;
+const minRandom = 0;
 
-function generateProgression(firstNumber, delta) {
+function generateProgression(first, delta) {
   const progression = [];
 
-  for (let i = 0; i < progressionNumberCount; i += 1) {
-    progression.push(firstNumber + i * delta);
+  for (let i = 0; i < progressionLength; i += 1) {
+    progression.push(first + i * delta);
   }
 
   return progression;
 }
 
 const generateQuiz = () => {
-  const firstNumber = generateRandomNumber(minRandomNumber, maxRandomNumber);
-  const unknownNumberPosition = generateRandomNumber(minRandomNumber, progressionNumberCount);
-  const delta = generateRandomNumber(minRandomNumber, maxDelta);
+  const first = getRandom(minRandom, maxRandom);
+  const unknownPosition = getRandom(minRandom, progressionLength);
+  const delta = getRandom(minRandom, maxDelta);
 
-  const progression = generateProgression(firstNumber, delta);
+  const progression = generateProgression(first, delta);
 
-  const answer = progression[unknownNumberPosition];
-  progression[unknownNumberPosition] = '..';
+  const answer = progression[unknownPosition];
+  progression[unknownPosition] = '..';
 
   const question = progression.join(' ');
 

@@ -1,18 +1,18 @@
 import launchGameEngine from '..';
-import generateRandomNumber from '../lib';
+import getRandom from '../lib';
 
 const gameTask = 'Find the greatest common divisor of given numbers.';
-const maxRandomNumber = 100;
-const minRandomNumber = 0;
+const maxRandom = 100;
+const minRandom = 0;
 
 const getGcd = (x, y) => (y === 0 ? x : getGcd(y, x % y));
 
 const generateQuiz = () => {
-  const firstNumber = generateRandomNumber(minRandomNumber, maxRandomNumber);
-  const secondNumber = generateRandomNumber(minRandomNumber, maxRandomNumber);
+  const first = getRandom(minRandom, maxRandom);
+  const second = getRandom(minRandom, maxRandom);
 
-  const question = `${firstNumber} ${secondNumber}`;
-  const answer = getGcd(firstNumber, secondNumber);
+  const question = `${first} ${second}`;
+  const answer = getGcd(first, second);
 
   return { question, answer };
 };

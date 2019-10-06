@@ -1,13 +1,13 @@
 /** @module brain-calc */
 
 import launchGameEngine from '..';
-import generateRandomNumber from '../lib';
+import getRandom from '../lib';
 
 const gameTask = 'What is the result of the expression?';
 const availableMathOperations = ['+', '-', '*'];
-const minRandomNumber = 0;
-const maxFirstNumber = 20;
-const maxSecondNumber = 50;
+const minRandom = 0;
+const maxFirst = 20;
+const maxSecond = 50;
 
 /**
  * Generate random math operator from availables.
@@ -20,7 +20,7 @@ const maxSecondNumber = 50;
  * console.log(generatedOperator); // => '+'
  */
 const generateMathSign = (mathOperators = availableMathOperations) => {
-  const operationIndex = generateRandomNumber(0, mathOperators.length - 1);
+  const operationIndex = getRandom(0, mathOperators.length - 1);
   return mathOperators[operationIndex];
 };
 
@@ -45,12 +45,12 @@ const mathItUp = (operator) => {
 
 
 const generateQuiz = () => {
-  const firstNumber = generateRandomNumber(minRandomNumber, maxFirstNumber);
-  const secondNumber = generateRandomNumber(minRandomNumber, maxSecondNumber);
+  const first = getRandom(minRandom, maxFirst);
+  const second = getRandom(minRandom, maxSecond);
   const sign = generateMathSign();
 
-  const question = `${firstNumber} ${sign} ${secondNumber}`;
-  const answer = mathItUp(sign)(firstNumber, secondNumber);
+  const question = `${first} ${sign} ${second}`;
+  const answer = mathItUp(sign)(first, second);
 
   return { question, answer };
 };
