@@ -16,10 +16,8 @@ const isPrime = (number) => {
 };
 
 const generateQuiz = () => {
-  const random = getRandom(minRandom, maxRandom);
-
-  const question = random;
-  const answer = isPrime(random) ? 'yes' : 'no';
+  const question = getRandom(minRandom, maxRandom);
+  const answer = isPrime(question) ? 'yes' : 'no';
 
   return { question, answer };
 };

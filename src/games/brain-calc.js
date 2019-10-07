@@ -39,10 +39,9 @@ const mathItUp = (operator) => {
     case '+': return (x, y) => x + y;
     case '-': return (x, y) => x - y;
     case '*': return (x, y) => x * y;
-    default: return () => {};
+    default: return null;
   }
 };
-
 
 const generateQuiz = () => {
   const first = getRandom(minRandom, maxFirst);

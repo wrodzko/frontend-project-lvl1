@@ -7,10 +7,10 @@ const maxDelta = 10;
 const maxRandom = 100;
 const minRandom = 0;
 
-function generateProgression(first, delta) {
+function generateProgression(first, delta, length) {
   const progression = [];
 
-  for (let i = 0; i < progressionLength; i += 1) {
+  for (let i = 0; i < length; i += 1) {
     progression.push(first + i * delta);
   }
 
@@ -19,13 +19,13 @@ function generateProgression(first, delta) {
 
 const generateQuiz = () => {
   const first = getRandom(minRandom, maxRandom);
-  const unknownPosition = getRandom(minRandom, progressionLength);
+  const hiddenElementPosition = getRandom(minRandom, progressionLength);
   const delta = getRandom(minRandom, maxDelta);
 
-  const progression = generateProgression(first, delta);
+  const progression = generateProgression(first, delta, progressionLength);
 
-  const answer = progression[unknownPosition];
-  progression[unknownPosition] = '..';
+  const answer = progression[hiddenElementPosition];
+  progression[hiddenElementPosition] = '..';
 
   const question = progression.join(' ');
 
